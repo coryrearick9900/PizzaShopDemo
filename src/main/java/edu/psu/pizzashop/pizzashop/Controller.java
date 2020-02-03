@@ -1,6 +1,6 @@
 package edu.psu.pizzashop.pizzashop;
 
-import org.springframework.core.annotation.Order;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -14,14 +14,14 @@ public class Controller {
 
     public Controller() {
         menuH.put(1, "You picked 1");
-        menuH.put(2, "Why tf would you pick 2??");
+        menuH.put(2, "Ew, Why tf would you pick 2??");
         menuH.put(3, "3");
         menuH.put(4, "vier");
     }
 
     @GetMapping(value = "/menu")
     public String getMenu() {
-        return "we serve pizza here sir\npizza: $10\npop: $1\nwings: $0.50/wing";
+        return "We serve pizza here sir\npizza: $10\npop: $1\nwings: $0.50/wing";
     }
 
     @GetMapping("/menubyid")
@@ -34,7 +34,9 @@ public class Controller {
         orderH.put(orderID, order);
 
         return orderID++;
-    }
+    } // import make sure thats its from te right place.  my library or not
+    // The color was yellow and there was an iport statement that was causing issues
+    
 
 
     // Wednesday:
