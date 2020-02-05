@@ -24,18 +24,24 @@ public class Controller {
         return "We serve pizza here sir\npizza: $10\npop: $1\nwings: $0.50/wing";
     }
 
-    @GetMapping("/menubyid")
+    @GetMapping("/menubyid") // /menubyid?id=2
     public String getMenuById(@RequestParam(name = "id") int id) {
         return menuH.get(id);
     }
 
+    // Now return type OrderDTO that only returns the non sensitive info that will be transferred to and from the web
+    // This is done for security reasons
     @PostMapping("/order/create")
-    public int createOrder(@RequestBody Order order) {
+    public OrderDTO createOrder(@RequestBody Order order) {
         orderH.put(orderID, order);
 
-        return orderID++;
-    } // import make sure thats its from te right place.  my library or not
-    // The color was yellow and there was an iport statement that was causing issues
+        OrderDTO od = new OrderDTO(order);
+
+        orderID++;
+
+        return od;
+    } // import make sure that's its from the right place.  my library or not
+    // The color was yellow and there was an import statement that was causing issues
     
 
 

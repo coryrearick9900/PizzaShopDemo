@@ -1,21 +1,17 @@
 package edu.psu.pizzashop.pizzashop;
 
-public class Order {
+public class OrderDTO {
     String pizza;
     int pop;
     int wing;
 
-    String creaditCardNum;
-    String CCV;
-    String expirationDate;
-
-    public String getCreaditCardNum() {
-        return creaditCardNum;
+    // takes info from order and takes out sensitive info
+    public OrderDTO (Order neworder) {
+        this.pizza = neworder.pizza;
+        this.pop = neworder.pop;
+        this.wing = neworder.wing;
     }
 
-    public void setCreaditCardNum(String creaditCardNum) {
-        this.creaditCardNum = creaditCardNum;
-    }
 
     // That was easy
     public String getPizza() {
