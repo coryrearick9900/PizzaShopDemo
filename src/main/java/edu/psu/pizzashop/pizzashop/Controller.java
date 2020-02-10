@@ -14,7 +14,7 @@ public class Controller {
 
     public Controller() {
         menuH.put(1, "You picked 1");
-        menuH.put(2, "Ew, Why tf would you pick 2??");
+        menuH.put(2, "Ew, Why tf would you poick 2??");
         menuH.put(3, "3");
         menuH.put(4, "vier");
     }
@@ -26,7 +26,12 @@ public class Controller {
 
     @GetMapping("/menubyid") // /menubyid?id=2
     public String getMenuById(@RequestParam(name = "id") int id) {
-        return menuH.get(id);
+        if (menuH.containsValue(id)) {
+            return menuH.get(id);
+        }else {
+            return "Nice going you fucked it up. :/";
+        }
+
     }
 
     // Now return type OrderDTO that only returns the non sensitive info that will be transferred to and from the web
